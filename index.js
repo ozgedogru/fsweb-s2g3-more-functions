@@ -16,10 +16,12 @@
   örnek output: ""
 */
 
-function dosyaAdiniBul(/* kodlar buraya */) {
-  // kodlar buraya
+function dosyaAdiniBul(path) {
+  if (path === String()) {
+    return path;
+  }
 }
-
+console.log(dosyaAdiniBul("Beethoven_5.mp3"));
 /*
   GÖREV 2
   - Input:  Bir sayı arrayini parametre olarak alacak bir fonksiyon oluştur.
@@ -38,10 +40,10 @@ function dosyaAdiniBul(/* kodlar buraya */) {
   örnek output: 104
 */
 
-function ortalamaBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamaBul(arrSayi) {
+  return arrSayi.reduce((total, index) => total + index / arrSayi.length, 0);
 }
-
+console.log(ortalamaBul([50, -26, 153, 7]));
 /*
   GÖREV 3
   - Input:  Bir sayı arrayini ve ortalama bulmaya yarayacak bir fonksiyonu parametre olarak alacak bir fonksiyon oluştur.
@@ -62,9 +64,12 @@ function ortalamaBul(/* kodlar buraya */) {
   örnek output: [109, 216, 288, 143, 185, 194]
 */
 
-function ortalamadanBuyukleriBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamadanBuyukleriBul(arrSayi, ortalamaBulFunct) {
+  const valueOrt = ortalamaBulFunct(arrSayi);
+  return arrSayi.filter((index) => index > valueOrt);
 }
+
+console.log(ortalamadanBuyukleriBul([5], ortalamaBul));
 
 /* !!!! Burdan aşağısını değiştirmeyin !!!! */
 function as() {
