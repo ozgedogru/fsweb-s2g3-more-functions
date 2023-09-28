@@ -17,9 +17,10 @@
 */
 
 function dosyaAdiniBul(path) {
-  if (path === String()) {
-    return path;
+  if (!path) {
+    return "";
   }
+  return path;
 }
 console.log(dosyaAdiniBul("Beethoven_5.mp3"));
 /*
@@ -41,7 +42,8 @@ console.log(dosyaAdiniBul("Beethoven_5.mp3"));
 */
 
 function ortalamaBul(arrSayi) {
-  return arrSayi.reduce((total, index) => total + index / arrSayi.length, 0);
+  const total = arrSayi.reduce((total, index) => total + index, 0);
+  return total / arrSayi.length;
 }
 console.log(ortalamaBul([50, -26, 153, 7]));
 /*
@@ -66,10 +68,13 @@ console.log(ortalamaBul([50, -26, 153, 7]));
 
 function ortalamadanBuyukleriBul(arrSayi, ortalamaBulFunct) {
   const valueOrt = ortalamaBulFunct(arrSayi);
-  return arrSayi.filter((index) => index > valueOrt);
+  if (arrSayi.length === 0) {
+    return null;
+  }
+  return arrSayi.filter((index) => index >= valueOrt);
 }
 
-console.log(ortalamadanBuyukleriBul([5], ortalamaBul));
+console.log(ortalamadanBuyukleriBul([50, -26, 153, 7], ortalamaBul));
 
 /* !!!! Burdan aşağısını değiştirmeyin !!!! */
 function as() {
